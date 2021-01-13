@@ -10,16 +10,16 @@ function Header(props) {
              <nav>
                <ul>
                    <li>
-                       <Link to="/login">Login</Link>
-                    </li>
-                   <li>
                        <Link to="/">Logout</Link>
                     </li>
                    <li>
-                       <Link to="/signup">Signup</Link>
+                       <Link to="/Dashboard">Dashboard</Link>
                     </li>
                    <li>
-                       <Link to="/Dashboard">Dashboard</Link>
+                       <Link to="/login">Login</Link>
+                    </li>
+                   <li>
+                       <Link to="/signup">Signup</Link>
                     </li>
                </ul>
            </nav>
