@@ -4,7 +4,7 @@ import styles from './Header.module.css';
 function Header(props) {
     return (
         <header className={styles.Header}>
-            <Link>
+            <Link to="/">
                 <h1>VGC</h1>
             </Link>
              <nav>
@@ -13,7 +13,7 @@ function Header(props) {
                        <Link to="/login">Login</Link>
                     </li>
                    <li>
-                       <Link to="">Logout</Link>
+                       <Link to="/">Logout</Link>
                     </li>
                    <li>
                        <Link to="/signup">Signup</Link>
