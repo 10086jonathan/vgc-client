@@ -2,14 +2,13 @@ import { useState } from 'react';
 import { login } from '../../services/userService';
 
 function LoginPage(props) {
+    
     const [formState, setFormState] = useState(getInitialFormState());
 
     function getInitialFormState() {
         return {
-            firstName: "",
-            lastName: "",
             email: "",
-            password: ""
+            password: "",
         }
     }
 
@@ -41,12 +40,14 @@ function LoginPage(props) {
         <div className="Page">
             <form onSubmit={handleSubmit}>
                 <div>
+                    <label>Email</label>
                     <input
                       value={formState.email}
                       onChange={handleChange}
                       name="email"
                       type="email"
                     />
+                    <label>Password</label>
                     <input
                       value={formState.password}
                       onChange={handleChange}
