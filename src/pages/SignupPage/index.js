@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { signup } from '../../services/userService';
 import { Link } from 'react-router-dom';
+import styles from './SignupPage.module.css';
 
 function SignupPage(props) {
 
@@ -30,7 +31,7 @@ function SignupPage(props) {
 
             setFormState(getInitialFormState());
 
-            // props.handleSignupOrLogin();
+            props.handleSignupOrLogin();
     
             props.history.push('/dashboard');
             
@@ -43,25 +44,29 @@ function SignupPage(props) {
     return (
         <div className="Page">
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className={styles.Page}>
+                    <label>First Name</label>
                     <input
                         value={formState.firstName}
                         onChange={handleChange}
                         name="firstName"
                         type="text"
                     />
+                    <label>Last Name</label>
                     <input
                         value={formState.lastName}
                         onChange={handleChange}
                         name="lastName"
                         type="text"
                     />
+                    <label>Email</label>
                     <input
                         value={formState.email}
                         onChange={handleChange}
                         name="email"
                         type="email"
                     />
+                    <label>Password</label>
                     <input
                         value={formState.password}
                         onChange={handleChange}
