@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
 // import { getUser, logout } from './services/userService';
 
@@ -12,7 +12,7 @@ import SignupPage from './pages/SignupPage';
 
 import './App.css';
 
-import { Redirect, Route, Switch, withRouter } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
