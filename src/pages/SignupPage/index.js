@@ -1,6 +1,5 @@
 import { useState } from 'react';
-// import { signup } from '../../services/userService';
-
+import { signup } from '../../services/userService';
 import { Link } from 'react-router-dom';
 
 function SignupPage(props) {
@@ -26,18 +25,17 @@ function SignupPage(props) {
     async function handleSubmit(event) {
         try {
             event.preventDefault();
-
-            console.log(formState);
-
-        //     await signup(formState);
+            
+            await signup(formState);
 
             setFormState(getInitialFormState());
 
-        //     props.handleSignupOrLogin();
-
+            // props.handleSignupOrLogin();
+    
             props.history.push('/dashboard');
-
+            
         } catch (error) {
+            console.log(error);
             alert(error.message)
         }
     };
@@ -71,7 +69,7 @@ function SignupPage(props) {
                         type="password"
                     />
                     <button>Sign Up</button>
-                    <p><Link to="/">Cancel</Link></p>
+                    <p><Link to="/" >Cancel</Link></p>
                 </div>
             </form>
         </div>
