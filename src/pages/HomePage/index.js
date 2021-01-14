@@ -1,9 +1,10 @@
+import styles from './HomePage.module.css'
+
 import VideoGameCard from '../../components/VideoGameCard'
 
 function HomePage(props) {
-    console.log(props)
     return (
-        <div>
+        <div className={styles.Home}>
             {
                 props.videoGameData.results.map((game, idx) =>
                 <VideoGameCard key={ idx } game={ game } />
