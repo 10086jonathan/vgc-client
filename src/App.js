@@ -53,10 +53,12 @@ function App(props) {
   return (
     <div className="App">
       <Header handleLogout={handleLogout} user={userState.user} />
-        <main>
           <Switch>
             <Route exact path="/" render={props =>
-              <HomePage />
+              <HomePage
+              {...props}
+              videoGameData={videoGameData}
+              />
             } />
             <Route exact path="/dashboard" render={props =>
               userState.user ?
@@ -66,17 +68,18 @@ function App(props) {
             } />
             <Route exact path="/signup" render={props =>
               <SignupPage
-                {...props}
-                handleSignupOrLogin={handleSignupOrLogin}
+              {...props}
+              handleSignupOrLogin={handleSignupOrLogin}
               />
             } />
             <Route exact path="/login" render={props =>
               <LoginPage
-                {...props}
-                handleSignupOrLogin={handleSignupOrLogin}
+              {...props}
+              handleSignupOrLogin={handleSignupOrLogin}
               />
             } />
           </Switch>
+        <main>
         </main>
       <Footer />
     </div>
