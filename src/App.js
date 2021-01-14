@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 
 import { getUser, logout } from './services/userService';
+import { getVideoGames } from './services/rawg-api'
 
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -12,27 +14,41 @@ import SignupPage from './pages/SignupPage';
 
 import './App.css';
 
-import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 
 function App(props) {
-
+  
   const [ userState, setUserState ] = useState({
     user: getUser()
   });
-
+  
+  const [ videoGameData, setVideoGameData ] = useState({
+    count: 0,
+    next: null,
+    previous: null,
+    results: []
+  });
+  
   function handleSignupOrLogin() {
     setUserState({
       user: getUser()
     });
   }
-
+  
   function handleLogout() {
     logout();
-
     setUserState({ user: null });
-    
     props.history.push('/');
-  }
+  };
+  
+  async function getAppData() {
+    const data = await getVideoGames();
+    setVideoGameData(data);
+  };
+
+  useEffect(() => {
+    getAppData()
+    console.log('effect');
+  }, []);
 
   return (
     <div className="App">
