@@ -1,7 +1,14 @@
+import VideoGameCard from '../../components/VideoGameCard'
+
 function HomePage(props) {
+    console.log(props)
     return (
         <div>
-            HomePage
+            {
+                props.videoGameData.results.map((game, idx) =>
+                <VideoGameCard key={ idx } game={ game } />
+                )
+            }
         </div>
     );
 }
