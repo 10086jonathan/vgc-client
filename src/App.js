@@ -43,7 +43,6 @@ function App(props) {
   async function getAppData() {
     const data = await getVideoGames();
     setVideoGameData(data);
-    console.log(data);
   };
 
   useEffect(() => {
