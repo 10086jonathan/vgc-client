@@ -1,12 +1,13 @@
 .Card {
-    width: 750px;
-    height: 300px;
-    margin-top: 20px;
-    background-color: black;
+    width: 100vh;
+    height: 275px;
+    background-color: darkviolet;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 30px;
+}
+
+.Container {
+    padding: 30px 20px;
     color: white;
 }
 
-.CardImg {
-    width: 100%;
-    height: 200px;
-}

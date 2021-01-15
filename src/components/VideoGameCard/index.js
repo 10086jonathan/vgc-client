@@ -1,18 +1,33 @@
 import styles from './VideoGameCard.module.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card';
+import Image from 'react-bootstrap/Image';
+import Badge from 'react-bootstrap/Badge';
 
 function Cards(props) {
+    console.log(props)
     return(
-        <Card className={styles.Card} >
-            <Card.Body>
-                <Card.Text>
-                    {props.game.name}
-                </Card.Text>
-            <Card.Img className={styles.CardImg} src={props.game.background_image} alt="Video Game Background" />
-            </Card.Body>
-        </Card>
+        <div className={styles.Card}>
+            <div className={styles.Container}>
+                <h2>{props.game.name}</h2>
+                <p>ESRB Rating:</p> { /* {props.game.esrb_rating.name}*/ }
+                {
+                    props.game.genres.map((genre, idx) =>
+                    <p key={ idx } genre={ genre }>
+                        Genres: { genre.name }
+                    </p>
+                    )
+                }
+                {
+                    props.game.parent_platforms.map((pltfrm, idx) =>
+                    <Badge key={ idx } pltfrm={ pltfrm } pill variant="dark">
+                        { pltfrm.platform.name }
+                    </Badge>
+                    )
+                }
+            </div>
+            <Image src={props.game.background_image} style={{ width: "100%"}} />
+        </div>
     )
 }
 
