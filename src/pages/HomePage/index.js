@@ -1,6 +1,6 @@
-import styles from './HomePage.module.css'
+import styles from './HomePage.module.css';
 
-import VideoGameCard from '../../components/VideoGameCard'
+import VideoGameCard from '../../components/VideoGameCard';
 
 function HomePage(props) {
     return (
@@ -8,6 +8,7 @@ function HomePage(props) {
             {
                 props.videoGameData.results.map((game, idx) =>
                 <VideoGameCard key={ idx } game={ game } />
+                
                 )
             }
         </div>
