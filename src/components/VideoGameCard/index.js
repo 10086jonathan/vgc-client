@@ -10,7 +10,10 @@ function Cards(props) {
         <div className={styles.Card}>
             <div className={styles.Container}>
                 <h2>{props.game.name}</h2>
-                <p>ESRB Rating:</p> { /* {props.game.esrb_rating.name}*/ }
+                {
+                    // <p>ESRB Rating: {props.game.esrb_rating.name}</p>
+                    
+                }
                 {
                     props.game.genres.map((genre, idx) =>
                     <p key={ idx } genre={ genre }>
