@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage';
 import DashboardPage from './pages/DashboardPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import VideoGamePage from './pages/VideoGamePage';
 
 import './App.css';
 
@@ -21,12 +22,16 @@ function App(props) {
     user: getUser()
   });
   
-  const [ videoGameData, setVideoGameData ] = useState({
+  const [ videoGameList, setVideoGameList ] = useState({
     count: 0,
     next: null,
     previous: null,
     results: []
   });
+
+  const [ gameData, setGameDate ] = useState({
+    
+  })
   
   function handleSignupOrLogin() {
     setUserState({
@@ -42,7 +47,7 @@ function App(props) {
   
   async function getAppData() {
     const data = await getVideoGames();
-    setVideoGameData(data);
+    setVideoGameList(data);
   };
 
   useEffect(() => {
@@ -56,7 +61,7 @@ function App(props) {
             <Route exact path="/" render={props =>
               <HomePage
               {...props}
-              videoGameData={videoGameData}
+              videoGameList={videoGameList}
               />
             } />
             <Route exact path="/dashboard" render={props =>
@@ -75,6 +80,11 @@ function App(props) {
               <LoginPage
               {...props}
               handleSignupOrLogin={handleSignupOrLogin}
+              />
+            } />
+            <Route exact path="/:id" render={props =>
+              <VideoGamePage
+              {...props}
               />
             } />
           </Switch>
