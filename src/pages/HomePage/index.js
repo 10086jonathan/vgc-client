@@ -6,9 +6,8 @@ function HomePage(props) {
     return (
         <div className={styles.Home}>
             {
-                props.videoGameData.results.map((game, idx) =>
-                <VideoGameCard key={ idx } game={ game } />
-                
+                props.videoGameList.results.map((game, idx) =>
+                <VideoGameCard key={ idx } game={ game } />                
                 )
             }
         </div>
