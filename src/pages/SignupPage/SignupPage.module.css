@@ -1,9 +1,9 @@
-input {
+.SignUp {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 25px;
-    margin-top: 8px;
-    padding: 10px;
+    background-image: url('../../imgs/SignupPageBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
 }
