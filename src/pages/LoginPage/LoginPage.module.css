@@ -1,0 +1,9 @@
+.LogIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../imgs/LoginPageBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
