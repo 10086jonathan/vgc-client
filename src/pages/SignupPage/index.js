@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { signup } from '../../services/userService';
 import { Link } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
+
+import { signup } from '../../services/userService';
 import styles from './SignupPage.module.css';
 
 function SignupPage(props) {
@@ -42,42 +44,54 @@ function SignupPage(props) {
     };
 
     return (
-        <div className="Page">
-            <form onSubmit={handleSubmit}>
-                <div className={styles.Page}>
-                    <label>First Name</label>
-                    <input
+        <main className={styles.SignUp}>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control
+                        placeholder="What do they call you?"
                         value={formState.firstName}
                         onChange={handleChange}
                         name="firstName"
                         type="text"
-                    />
-                    <label>Last Name</label>
-                    <input
+                        />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control
+                        placeholder="What is your family name?"
                         value={formState.lastName}
                         onChange={handleChange}
                         name="lastName"
                         type="text"
-                    />
-                    <label>Email</label>
-                    <input
+                        />
+                </Form.Group>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        placeholder="Enter Email"
                         value={formState.email}
                         onChange={handleChange}
                         name="email"
                         type="email"
-                    />
-                    <label>Password</label>
-                    <input
+                        />
+                </Form.Group>
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                        placeholder="Password"
                         value={formState.password}
                         onChange={handleChange}
                         name="password"
                         type="password"
-                    />
-                    <button>Sign Up</button>
-                    <p><Link to="/" >Cancel</Link></p>
-                </div>
-            </form>
-        </div>
+                        />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+                <p><Link to="/" >Cancel</Link></p>
+            </Form>
+        </main>
     );
 }
 

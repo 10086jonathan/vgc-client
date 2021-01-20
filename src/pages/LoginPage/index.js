@@ -1,5 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
 import { login } from '../../services/userService';
+
+import styles from './LoginPage.module.css';
+import { Form, Button } from 'react-bootstrap';
 
 function LoginPage(props) {
     
@@ -37,27 +41,32 @@ function LoginPage(props) {
     };
 
     return (
-        <div className="Page">
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email</label>
-                    <input
-                      value={formState.email}
-                      onChange={handleChange}
-                      name="email"
-                      type="email"
+        <main className={styles.LogIn}>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        value={formState.email}
+                        onChange={handleChange}
+                        name="email"
+                        type="email"
                     />
-                    <label>Password</label>
-                    <input
-                      value={formState.password}
-                      onChange={handleChange}
-                      name="password"
-                      type="password"
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                        value={formState.password}
+                        onChange={handleChange}
+                        name="password"
+                        type="password"
                     />
-                    <button>Login</button>
-                </div>
-            </form>
-        </div>
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+                <p><Link to="/">Cancel</Link></p>
+            </Form>
+        </main>
     );
 };
 

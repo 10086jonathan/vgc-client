@@ -15,7 +15,6 @@ import VideoGamePage from './pages/VideoGamePage';
 
 import './App.css';
 
-
 function App(props) {
   
   const [ userState, setUserState ] = useState({
@@ -29,15 +28,11 @@ function App(props) {
     results: []
   });
 
-  const [ gameData, setGameDate ] = useState({
-    
-  })
-  
   function handleSignupOrLogin() {
     setUserState({
       user: getUser()
     });
-  }
+  };
   
   function handleLogout() {
     logout();
@@ -88,11 +83,9 @@ function App(props) {
               />
             } />
           </Switch>
-        <main>
-        </main>
       <Footer />
     </div>
   );
-}
+};
 
 export default withRouter(App);
