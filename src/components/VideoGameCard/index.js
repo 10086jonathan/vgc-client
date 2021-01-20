@@ -6,6 +6,18 @@ import Image from 'react-bootstrap/Image';
 import Badge from 'react-bootstrap/Badge';
 
 function Cards(props) {
+    console.log(props);
+    function genreList(genres) {
+        let list = [];
+        let genList = '';
+
+        genres.map((genre) => {
+            list.push(genre.name)
+        });
+
+        genList = list.join(', ');
+        return genList;
+    }
     return(
         <div className={styles.Card}>
             <div className={styles.Container}>
@@ -18,15 +30,13 @@ function Cards(props) {
                 }
 
                 {
-                    props.game.genres.map((genre, idx) =>
-                    <p key={ idx } genre={ genre }>
-                        Genres: { genre.name }
+                    <p>
+                        Genres: { genreList(props.game.genres) }
                     </p>
-                    )
                 }
 
                 {
-                    props.game.parent_platforms.map((pltfrm, idx) =>
+                    props.game.platforms.map((pltfrm, idx) =>
                     <Badge key={ idx } pltfrm={ pltfrm } pill variant="dark">
                         { pltfrm.platform.name }
                     </Badge>
