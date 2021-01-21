@@ -4,18 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Badge from 'react-bootstrap/Badge';
 
 function VideoGameCard(props) {
-    console.log(props);
+    
     function genreList(genres) {
         let list = [];
         let genList = '';
-
+    
         genres.map(genre => 
             list.push(genre.name)
         );
-
+    
         genList = list.join(', ');
         return genList;
-    }
+    };
 
     return(
         <div className={styles.Card}>
