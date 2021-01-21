@@ -9,9 +9,9 @@ function VideoGameCard(props) {
         let list = [];
         let genList = '';
 
-        genres.map(genre => {
+        genres.map(genre => 
             list.push(genre.name)
-        });
+        );
 
         genList = list.join(', ');
         return genList;
@@ -35,7 +35,7 @@ function VideoGameCard(props) {
                     )
                 }
             </div>
-            <img src={props.game.background_image} style={{ width: "100%" }} />
+            <img src={props.game.background_image} style={{ width: "100%" }} alt={`${props.game.name}'s poster`} />
         </div>
     )
 }
