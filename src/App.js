@@ -21,7 +21,7 @@ function App(props) {
     user: getUser()
   });
   
-  const [ videoGameList, setVideoGameList ] = useState({
+  const [ videoGameData, setVideoGameData ] = useState({
     count: 0,
     next: null,
     previous: null,
@@ -42,8 +42,12 @@ function App(props) {
   
   async function getAppData() {
     const data = await getVideoGames();
-    setVideoGameList(data);
+    setVideoGameData(data);
   };
+
+  function findOne(gameid) {
+    return videoGameData.results.find(game => game.id === Number(gameid))
+  }
 
   useEffect(() => {
     getAppData()
@@ -56,7 +60,7 @@ function App(props) {
             <Route exact path="/" render={props =>
               <HomePage
               {...props}
-              videoGameList={videoGameList}
+              videoGameData={videoGameData.results}
               />
             } />
             <Route exact path="/dashboard" render={props =>
@@ -77,10 +81,13 @@ function App(props) {
               handleSignupOrLogin={handleSignupOrLogin}
               />
             } />
-            <Route exact path="/:id" render={props =>
-              <VideoGamePage
+            <Route exact path="/:id" render={props =>{
+              if(!userState.user) return <Redirect to="/login" />
+              return <VideoGamePage
               {...props}
+              game={findOne(props.match.params.id)}
               />
+            }
             } />
           </Switch>
       <Footer />

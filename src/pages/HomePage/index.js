@@ -1,13 +1,18 @@
+import { Link } from 'react-router-dom';
+
 import styles from './HomePage.module.css';
 
 import VideoGameCard from '../../components/VideoGameCard';
 
 function HomePage(props) {
+    
     return (
         <div className={styles.Home}>
             {
-                props.videoGameList.results.map((game, idx) =>
-                <VideoGameCard key={ idx } game={ game } />                
+                props.videoGameData.map(game =>
+                    <Link key={game.id} to={`/${game.id}`}>
+                        <VideoGameCard game={game} />
+                    </Link>
                 )
             }
         </div>
