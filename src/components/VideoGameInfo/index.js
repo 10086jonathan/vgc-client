@@ -1,4 +1,4 @@
-import Badge from 'react-bootstrap/Badge'
+import { Badge, Button, Image } from 'react-bootstrap'
 
 function VideoGameInfo(props) {
     console.log(props)
@@ -15,9 +15,10 @@ function VideoGameInfo(props) {
     };
     return (
         <div>
+            <Image src={props.game.background_image} width="750vh" alt={`${props.game.name}'s poster`} thumbnail />
             <h1>{props.game.name}</h1>
             <p>Average Playtime: {props.game.playtime}hrs</p>
-            <p>ESRB Rating: {props.game.esrb_rating.name}</p>
+            <p>ESRB Rating: { props.game.esrb_rating ? props.game.esrb_rating.name : 'No Rating' }</p>
             <p>Genres: {genreList(props.game.genres)}</p>
             <p>Meta Score: {props.game.metacritic}</p>
             <p>Platforms:</p>
@@ -29,6 +30,7 @@ function VideoGameInfo(props) {
                 )
             }
             <p>Release Date: {props.game.released}</p>
+            <Button href="/" variant="dark">Back</Button>{' '}
         </div>
     )
 }
