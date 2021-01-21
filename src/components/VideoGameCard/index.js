@@ -23,7 +23,7 @@ function VideoGameCard(props) {
 
                 <h2>{props.game.name}</h2>
 
-                {/* <p>ESRB Rating: {props.game.esrb_rating.name}</p> */}
+                <p>ESRB Rating: { props.game.esrb_rating ? props.game.esrb_rating.name : 'No Rating' }</p>
 
                 <p>Genres: { genreList(props.game.genres) }</p>
 
