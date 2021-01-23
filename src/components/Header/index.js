@@ -1,8 +1,8 @@
-import logo from '../../logo.png'
-import { Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
-import styles from './Header.module.css';
+import logo from '../../logo.png';
+import { Link } from 'react-router-dom';
 
+import Image from 'react-bootstrap/Image';
+import styles from './Header.module.css';
 
 
 
@@ -12,7 +12,7 @@ function Header(props) {
             
         <header className={styles.Header}>
             <Link to="/">
-                <Image src={logo} className="App-logo" alt="logo" />
+                <Image src={logo} className="App-logo" alt="logo" width="100" height="100" />
             </Link>
              <nav>
                <ul>

@@ -1,7 +1,7 @@
 import { Badge, Button, Image } from 'react-bootstrap'
 
-function VideoGameInfo(props) {
-    console.log(props)
+function VGInfo(props) {
+    // console.log(props)
     function genreList(genres) {
         let list = [];
         let genList='';
@@ -35,4 +35,4 @@ function VideoGameInfo(props) {
     )
 }
 
-export default VideoGameInfo;
+export default VGInfo;

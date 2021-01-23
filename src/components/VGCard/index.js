@@ -1,9 +1,8 @@
-import styles from './VideoGameCard.module.css';
+import styles from './VGCard.module.css';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Badge from 'react-bootstrap/Badge';
 
-function VideoGameCard(props) {
+function VGCard(props) {
     
     function genreList(genres) {
         let list = [];
@@ -40,4 +39,4 @@ function VideoGameCard(props) {
     )
 }
 
-export default VideoGameCard;
+export default VGCard;
