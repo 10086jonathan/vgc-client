@@ -14,6 +14,7 @@ import SignupPage from './pages/SignupPage';
 import VideoGamePage from './pages/VideoGamePage';
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App(props) {
   
@@ -54,7 +55,7 @@ function App(props) {
   }, []);
 
   return (
-    <div className="App">
+    <div className="container">
       <Header handleLogout={handleLogout} user={userState.user} />
           <Switch>
             <Route exact path="/" render={props =>
