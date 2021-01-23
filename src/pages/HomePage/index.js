@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './HomePage.module.css';
 
-import VideoGameCard from '../../components/VideoGameCard';
+import VGCard from '../../components/VGCard';
 
 function HomePage(props) {
     
@@ -11,7 +11,7 @@ function HomePage(props) {
             {
                 props.videoGameData.map(game =>
                     <Link key={game.id} to={`/${game.id}`}>
-                        <VideoGameCard game={game} />
+                        <VGCard game={game} />
                     </Link>
                 )
             }

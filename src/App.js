@@ -29,6 +29,19 @@ function App(props) {
     results: []
   });
 
+  const commentData = [
+    { id: 1, alias: 'jon10086', comment: 'alsdfj;lak;a;lkdfj', rating: 5 },
+    { id: 2, alias: 'jona10086', comment: ';lkd65sdfgs65dfgh46d4fj', rating: 4 },
+    { id: 3, alias: 'jonathan10086', comment: 'alsdf234kllgh234qw5;lkdfj', rating: 3 }
+  ]
+
+  const [ comments, setComments ] = useState(commentData);
+
+  function addComment(comment) {
+    comment.id = comments.length + 1
+    setComments([...comments, comment]);
+  };
+
   function handleSignupOrLogin() {
     setUserState({
       user: getUser()
@@ -87,6 +100,8 @@ function App(props) {
               return <VideoGamePage
               {...props}
               game={findOne(props.match.params.id)}
+              comments={comments}
+              addComment={addComment}
               />
             }
             } />
