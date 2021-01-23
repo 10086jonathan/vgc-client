@@ -1,11 +1,18 @@
-import { Link } from 'react-router-dom';
+import logo from '../../logo.png'
+import { Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 import styles from './Header.module.css';
+
+
+
+
 
 function Header(props) {
     return (
+            
         <header className={styles.Header}>
             <Link to="/">
-                <h1>VGC</h1>
+                <Image src={logo} className="App-logo" alt="logo" />
             </Link>
              <nav>
                <ul>
@@ -34,6 +41,7 @@ function Header(props) {
                </ul>
            </nav>
         </header>
+        
     );
 };
 
