@@ -37,10 +37,47 @@ function App(props) {
 
   const [ comments, setComments ] = useState(commentData);
 
+  const [ currentComment, setCurrentComment ] = useState()
+
+  const [ commentEdit, setCommentEdit ] = useState(false);
+
+
+  function getInitialFormState() {
+    return {
+        id: null,
+        alias: "",
+        comment: "",
+        rating: 5
+    }
+};
+
   function addComment(comment) {
     comment.id = comments.length + 1
     setComments([...comments, comment]);
   };
+
+  function deleteComment(id) {
+    setCommentEdit(false);
+
+    setComments(comments.filter((comment) => comment.id !== id));
+  };
+
+  function editComment(comment) {
+    setCommentEdit(true);
+
+    setCurrentComment({
+      id: comment.id,
+      alias: comment.alias,
+      comment: comment.comment,
+      rating: comment.rating
+    })
+  };
+
+  function updateComment(id, updatedComment) {
+    setCommentEdit(false);
+
+    setComments(comments.map((comment) => (comment.id === id ? updatedComment : comment)))
+  }
 
   function handleSignupOrLogin() {
     setUserState({
@@ -102,6 +139,13 @@ function App(props) {
               game={findOne(props.match.params.id)}
               comments={comments}
               addComment={addComment}
+              deleteComment={deleteComment}
+              getInitialFormState={getInitialFormState}
+              editComment={editComment}
+              commentEdit={commentEdit}
+              currentComment={currentComment}
+              updateComment={updateComment}
+              setCommentEdit={setCommentEdit}
               />
             }
             } />
