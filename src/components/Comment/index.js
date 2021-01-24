@@ -19,8 +19,21 @@ function Comment(props) {
                             <td>{comment.comment}</td>
                             <td>{comment.rating}</td>
                             <td>
-                                <button className="button muted-button">Edit</button>
-                                <button className="button muted-button">Delete</button>
+                                <button
+                                    onClick={() => {
+                                        props.editComment(comment)  
+                                    }}
+                                    className="button muted-button"
+                                >
+                                    Edit
+                                </button>
+                                
+                                <button
+                                    onClick={() => props.deleteComment(comment.id)}
+                                    className="button muted-button"
+                                >
+                                    Delete
+                                </button>
                             </td>
                         </tr>
                     ))

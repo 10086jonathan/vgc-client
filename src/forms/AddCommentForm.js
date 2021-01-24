@@ -4,17 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 function AddCommentForm(props) {
-    console.log(props);
-    const [formState, setFormState] = useState(getInitialFormState());
-
-    function getInitialFormState() {
-        return {
-            id: null,
-            alias: "",
-            comment: "",
-            rating: 5
-        }
-    };
+    // console.log(props);
+    const [formState, setFormState] = useState(props.getInitialFormState);
 
     function handleChange(event) {
         setFormState(prevState => ({
@@ -29,7 +20,7 @@ function AddCommentForm(props) {
             if(!formState.alias || !formState.comment) return;
 
             props.addComment(formState);
-            setFormState(getInitialFormState());
+            setFormState(props.getInitialFormState);
 
         } catch (error) {
             console.log(error);
@@ -76,7 +67,7 @@ function AddCommentForm(props) {
                 </Form.Control>
             </Form.Group>
             <Button variant="dark" type="submit">Add Comment</Button>{' '}
-            <Button onClick={getInitialFormState}>Cancel</Button>
+            <Button onClick={props.getInitialFormState}>Cancel</Button>
         </Form>
     )
 }
