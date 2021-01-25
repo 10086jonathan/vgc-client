@@ -91,18 +91,21 @@ function App(props) {
     props.history.push('/');
   };
   
-  async function getAppData() {
-    const data = await getVideoGames();
-    setVideoGameData(data);
-  };
-
+  
   function findOne(gameid) {
     return videoGameData.results.find(game => game.id === Number(gameid))
   }
-
+  
   useEffect(() => {
-    getAppData()
+    async function getAppData() {
+      const { data } = await getVideoGames();
+      setVideoGameData(data);
+    };
+
+    getAppData();
+
   }, []);
+
 
   return (
     <div className="container">
