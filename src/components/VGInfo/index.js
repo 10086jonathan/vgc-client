@@ -24,7 +24,7 @@ function VGInfo(props) {
             <p>Platforms:</p>
             {
                 props.game.platforms.map((pltfrm, idx) =>
-                    <Badge key={idx} pltfrm={pltfrm} pill variant="dark">
+                <Badge key={idx} pltfrm={pltfrm} pill variant="dark">
                         {pltfrm.platform.name}
                     </Badge>
                 )
