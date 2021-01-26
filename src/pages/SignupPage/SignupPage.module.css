@@ -1,9 +1,7 @@
 .SignUp {
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('../../imgs/SignupPageBackground.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
 }
