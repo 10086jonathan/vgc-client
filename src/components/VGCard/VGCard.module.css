@@ -1,8 +1,8 @@
 .Card {
-    width: 100vh;
+    max-width: 100%;
     max-height: 400px;
     overflow: hidden; 
-    background-color: darkviolet;
+    background-color: black;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 50px;
     border-radius: 25px;
@@ -15,5 +15,9 @@
 
 p {
     font-size: 15px;
+    line-height: 10px;
 }
 
+.Container:hover {
+    background: rgb(202,107,229);
+}

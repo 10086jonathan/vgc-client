@@ -17,24 +17,29 @@ function VGCard(props) {
     };
 
     return(
-        <div className={styles.Card}>
-            <div className={styles.Container}>
+        <div className="container">
+            <div className={styles.Card}>
+                <div className={styles.Container}>
+                    
+                    <h2>{props.game.name}</h2>
 
-                <h2>{props.game.name}</h2>
+                    <p><span style={{ fontWeight: "bold" }}>ESRB Rating: </span>{ props.game.esrb_rating ? props.game.esrb_rating.name : 'No Rating' }</p>
 
-                <p>ESRB Rating: { props.game.esrb_rating ? props.game.esrb_rating.name : 'No Rating' }</p>
+                    <p><span style={{ fontWeight: "bold" }}>Genres: </span>{ genreList(props.game.genres) }</p>
 
-                <p>Genres: { genreList(props.game.genres) }</p>
-
-                {
-                    props.game.platforms.map((pltfrm, idx) =>
-                        <Badge key={idx} pltfrm={pltfrm} pill variant="dark">
+                    {
+                        props.game.platforms.map((pltfrm, idx) =>
+                        <Badge style={{ margin: "2px" }} key={idx} pltfrm={pltfrm} pill variant="dark">
                             {pltfrm.platform.name}
                         </Badge>
-                    )
-                }
+                        )
+                    }
+
+                </div>
+
+                <img src={props.game.background_image} style={{ width: "100%" }} alt={`${props.game.name}'s poster`} />
+            
             </div>
-            <img src={props.game.background_image} style={{ width: "100%" }} alt={`${props.game.name}'s poster`} />
         </div>
     )
 }
