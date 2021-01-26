@@ -29,46 +29,50 @@ function AddCommentForm(props) {
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Form.Group>
-                <Form.Label>Alias</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="alias"
-                    value={formState.alias}
-                    onChange={handleChange}
-                />
+        <div style={{ minWidth: "270px" }}>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Label>Alias</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="alias"
+                        value={formState.alias}
+                        onChange={handleChange}
+                    />
 
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Comment</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="comment"
-                    value={formState.comment}
-                    onChange={handleChange}
-                />
+                </Form.Group>
+                <Form.Group controlId="Textarea">
+                    <Form.Label>Comment</Form.Label>
+                    <Form.Control
+                        as="textarea"
+                        rows={2} 
+                        type="text"
+                        name="comment"
+                        value={formState.comment}
+                        onChange={handleChange}
+                    />
 
-            </Form.Group>
-            <Form.Group controlId="rating.SelectCustom">
-                <Form.Label>Rating</Form.Label>
-                <Form.Control
-                    as="select"
-                    name="rating"
-                    value={formState.rating}
-                    onChange={handleChange}    
-                    custom
-                >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </Form.Control>
-            </Form.Group>
-            <Button variant="dark" type="submit">Add Comment</Button>{' '}
-            <Button onClick={props.getInitialFormState}>Cancel</Button>
-        </Form>
+                </Form.Group>
+                <Form.Group controlId="rating.SelectCustom">
+                    <Form.Label>Rating</Form.Label>
+                    <Form.Control
+                        as="select"
+                        name="rating"
+                        value={formState.rating}
+                        onChange={handleChange}    
+                        custom
+                    >
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Form.Control>
+                </Form.Group>
+                <Button variant="dark" type="submit">Add Comment</Button>{' '}
+                <Button variant="danger" onClick={props.getInitialFormState}>Cancel</Button>
+            </Form>
+        </div>
     )
 }
 
