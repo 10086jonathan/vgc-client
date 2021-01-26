@@ -1,0 +1,22 @@
+.Image {
+    position: static;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 125vh;
+    z-index: -1;
+}
+
+.Form {
+    position: absolute;
+    display: block;
+    width: 35vh;
+    top: 190px;
+    right: 275px;
+    font-weight: bold;
+}
+
+
+.Form > Button {
+    margin-right: 10px;
+}
