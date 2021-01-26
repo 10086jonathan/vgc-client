@@ -22,9 +22,9 @@ function Header(props) {
                             <li>
                                 <Link style={{ textDecoration: "none", color: "white" }} to="/" onClick={props.handleLogout} >Logout</Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link style={{ textDecoration: "none", color: "white" }} to="/Dashboard">Dashboard</Link>
-                            </li>
+                            </li> */}
                         </>
 
                         :
