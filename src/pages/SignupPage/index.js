@@ -35,7 +35,7 @@ function SignupPage(props) {
 
             props.handleSignupOrLogin();
     
-            props.history.push('/dashboard');
+            props.history.push('/');
             
         } catch (error) {
             console.log(error);
