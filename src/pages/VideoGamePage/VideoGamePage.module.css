@@ -3,4 +3,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 50px;
+}
+
+.Comments {
+    display: flex;
+    background-color: white;
+}
+
+.FormTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
 }
