@@ -1,9 +1,8 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom'
-import { login } from '../../services/userService';
-
+import LoginCard from '../../components/LoginCard';
 import styles from './LoginPage.module.css';
-import { Form, Button } from 'react-bootstrap';
+import { useState } from 'react';
+
+import { login } from '../../services/userService';
 
 function LoginPage(props) {
     
@@ -33,7 +32,7 @@ function LoginPage(props) {
 
             props.handleSignupOrLogin();
 
-            props.history.push('/dashboard');
+            props.history.push('/');
 
         } catch (error) {
             alert(error.message)
@@ -41,32 +40,14 @@ function LoginPage(props) {
     };
 
     return (
-        <main className={styles.LogIn}>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                        value={formState.email}
-                        onChange={handleChange}
-                        name="email"
-                        type="email"
-                    />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                        value={formState.password}
-                        onChange={handleChange}
-                        name="password"
-                        type="password"
-                    />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-                <p><Link to="/">Cancel</Link></p>
-            </Form>
-        </main>
+        <div className={styles.LogIn}>
+            <LoginCard
+                {...props}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                formState={formState}
+            />
+        </div>
     );
 };
 

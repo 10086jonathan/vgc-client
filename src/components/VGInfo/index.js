@@ -1,4 +1,7 @@
-import { Badge, Button, Image } from 'react-bootstrap'
+import Badge  from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
+
+import styles from './VGInfo.module.css';
 
 function VGInfo(props) {
     // console.log(props)
@@ -14,23 +17,36 @@ function VGInfo(props) {
         return genList;
     };
     return (
-        <div>
-            <Image src={props.game.background_image} width="750vh" alt={`${props.game.name}'s poster`} thumbnail />
-            <h1>{props.game.name}</h1>
-            <p>Average Playtime: {props.game.playtime}hrs</p>
-            <p>ESRB Rating: { props.game.esrb_rating ? props.game.esrb_rating.name : 'No Rating' }</p>
-            <p>Genres: {genreList(props.game.genres)}</p>
-            <p>Meta Score: {props.game.metacritic}</p>
-            <p>Platforms:</p>
-            {
-                props.game.platforms.map((pltfrm, idx) =>
-                <Badge key={idx} pltfrm={pltfrm} pill variant="dark">
-                        {pltfrm.platform.name}
-                    </Badge>
-                )
-            }
-            <p>Release Date: {props.game.released}</p>
-            <Button href="/" variant="dark">Back</Button>{' '}
+        <div className="container">
+            <Button style={{ marginBottom: "50px", marginTop: "25px" }} href="/" variant="danger">Back</Button>
+            <h1 style={{ color: "white" }}>{props.game.name}</h1>
+
+            <div className={styles.Info}>
+                <img src={props.game.background_image} width="100%" alt={`${props.game.name}'s poster`} />
+            </div>
+
+            <div className={styles.Container}>
+                <h5><span style={{ fontWeight: "bold" }}>ESRB Rating: </span>
+                {
+                    props.game.esrb_rating ?
+                    props.game.esrb_rating.name
+                    :
+                    'No Rating'
+                }
+                </h5>
+                <h5><span style={{ fontWeight: "bold" }}>Average Playtime: </span>{props.game.playtime}hrs</h5>
+                <h5><span style={{ fontWeight: "bold" }}>Genres: </span>{genreList(props.game.genres)}</h5>
+                <h5><span style={{ fontWeight: "bold" }}>Meta Score: </span>{props.game.metacritic}</h5>
+                <h5 style={{ fontWeight: "bold", marginBottom: "5px" }}>Platforms:</h5>
+                    {
+                        props.game.platforms.map((pltfrm, idx) =>
+                        <Badge style={{ margin: "2px" }} key={idx} pltfrm={pltfrm} pill variant="light">
+                            {pltfrm.platform.name}
+                        </Badge>
+                        )
+                    }
+                <h5 style={{ marginTop: "10px" }}><span style={{ fontWeight: "bold" }}>Release Date: </span>{props.game.released}</h5>
+            </div>
         </div>
     )
 }

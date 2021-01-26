@@ -20,21 +20,21 @@ function Header(props) {
                        props.user ?
                         <>
                             <li>
-                                <Link to="/" onClick={props.handleLogout} >Logout</Link>
+                                <Link style={{ textDecoration: "none", color: "white" }} to="/" onClick={props.handleLogout} >Logout</Link>
                             </li>
-                            <li>
-                                <Link to="/Dashboard">Dashboard</Link>
-                            </li>
+                            {/* <li>
+                                <Link style={{ textDecoration: "none", color: "white" }} to="/Dashboard">Dashboard</Link>
+                            </li> */}
                         </>
 
                         :
 
                         <>
                             <li>
-                                <Link to="/login">Login</Link>
+                                <Link style={{ textDecoration: "none", color: "white" }} to="/login">Login</Link>
                             </li>
                             <li>
-                                <Link to="/signup">Signup</Link>
+                                <Link style={{ textDecoration: "none", color: "white" }} to="/signup">Signup</Link>
                             </li>
                         </>
                    }
