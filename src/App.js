@@ -108,7 +108,7 @@ function App(props) {
 
 
   return (
-    <div className="container">
+    <main style={{ backgroundColor: "#20232a" }}>
       <Header handleLogout={handleLogout} user={userState.user} />
           <Switch>
             <Route exact path="/" render={props =>
@@ -154,7 +154,7 @@ function App(props) {
             } />
           </Switch>
       <Footer />
-    </div>
+    </main>
   );
 };
 
