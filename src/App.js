@@ -29,13 +29,18 @@ function App(props) {
     results: []
   });
 
-  const commentData = [
-    { id: 1, alias: 'jon10086', comment: 'alsdfj;lak;a;lkdfj', rating: 5 },
-    { id: 2, alias: 'jona10086', comment: ';lkd65sdfgs65dfgh46d4fj', rating: 4 },
-    { id: 3, alias: 'jonathan10086', comment: 'alsdf234kllgh234qw5;lkdfj', rating: 3 }
-  ]
+  // const commentData = [
+  //   { id: 1, alias: 'jon10086', comment: 'alsdfj;lak;a;lkdfj', rating: 5 },
+  //   { id: 2, alias: 'jona10086', comment: ';lkd65sdfgs65dfgh46d4fj', rating: 4 },
+  //   { id: 3, alias: 'jonathan10086', comment: 'alsdf234kllgh234qw5;lkdfj', rating: 3 }
+  // ]
 
-  const [ comments, setComments ] = useState(commentData);
+  const [ comments, setComments ] = useState({
+    id: 0,
+    alias: "",
+    comment: "",
+    rating: 0
+  });
 
   const [ currentComment, setCurrentComment ] = useState()
 
